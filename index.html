@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Goró da Mansão | Luxury Rebellion</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Hanken+Grotesk:wght@300;400;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#121414",
+                        "outline": "#8e9192",
+                        "background": "#121414",
+                        "inverse-primary": "#5f5e5e",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "tertiary": "#ffabf3",
+                        "surface-tint": "#c9c6c5",
+                        "on-secondary-container": "#556d00",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-primary-container": "#7b7979",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary": "#313030",
+                        "on-background": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#810081",
+                        "secondary-fixed": "#c3f400",
+                        "inverse-on-surface": "#2f3131",
+                        "on-secondary": "#283500",
+                        "secondary-fixed-dim": "#abd600",
+                        "tertiary-fixed-dim": "#ffabf3",
+                        "surface-container-low": "#1a1c1c",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary": "#5b005b",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-container": "#0a0a0a",
+                        "error-container": "#93000a",
+                        "surface-container": "#1e2020",
+                        "on-surface-variant": "#c4c7c7",
+                        "tertiary-container": "#1b001b",
+                        "secondary-container": "#c3f400",
+                        "on-secondary-fixed-variant": "#3c4d00",
+                        "on-surface": "#e2e2e2",
+                        "tertiary-fixed": "#ffd7f5",
+                        "surface": "#121414",
+                        "outline-variant": "#444748",
+                        "surface-container-high": "#282a2b",
+                        "surface-container-highest": "#333535",
+                        "surface-bright": "#38393a",
+                        "secondary": "#ffffff",
+                        "primary": "#c9c6c5",
+                        "on-tertiary-fixed": "#380038",
+                        "on-secondary-fixed": "#161e00",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e2e2e2",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#d600d6",
+                        "surface-variant": "#333535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "section-gap": "160px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "display-xl": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "100%", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "130%", "fontWeight": "600" }],
+                        "headline-lg": ["64px", { "lineHeight": "115%", "fontWeight": "700" }],
+                        "display-xl": ["120px", { "lineHeight": "110%", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "120%", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "160%", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "150%", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(195, 244, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(195, 244, 0, 0.4);
+            box-shadow: 0 0 40px rgba(195, 244, 0, 0.05);
+            transform: translateY(-4px);
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 15px rgba(195, 244, 0, 0.5);
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .studio-glow-cyan {
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .studio-glow-magenta {
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed font-body-lg">
+    <!-- TopAppBar -->
+    <nav class="fixed top-0 w-full z-[100] bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border-b border-white/10">
+        <div class="flex justify-between items-center px-gutter py-4 w-full max-w-full mx-auto">
+            <div class="flex items-center gap-4">
+                <button
+                    class="text-primary dark:text-primary-fixed-dim hover:text-secondary transition-colors duration-300">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+            <div class="text-headline-md font-headline-md tracking-tighter text-on-surface dark:text-on-surface">
+                <a href="index.html">Goró da Mansão</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-8">
+                    <a class="text-label-caps font-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="sabores.html">Botanical Blends</a>
+                    <a class="text-label-caps font-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="reducao-danos.html">Redução de Danos</a>
+                    <a class="text-label-caps font-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="#">Manifesto</a>
+                </div>
+                <button
+                    class="text-primary dark:text-primary-fixed-dim hover:text-secondary transition-colors duration-300">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 studio-glow-cyan" style="transform: translate(17.3438px, -9.08722px);"></div>
+            <div class="absolute bottom-0 right-0 w-1/2 h-1/2 studio-glow-magenta"></div>
+        </div>
+        <div
+            class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop items-center w-full max-w-[1440px]">
+            <div class="md:col-start-1 md:col-span-6 order-2 md:order-1">
+                <span class="text-label-caps font-label-caps text-secondary-fixed mb-4 block tracking-[0.2em]">LUXURY
+                    REBELLION</span>
+                <h1
+                    class="text-headline-lg-mobile md:text-display-xl font-display-xl text-on-surface leading-tight mb-8">
+                    Elevando sua <br> <span class="italic text-outline">vibe</span> noturna.
+                </h1>
+                <p class="text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                    Conheça o blend botânico que redefine a indulgência consciente. O prazer do sabor original, sem os
+                    riscos de amanhã.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="bg-secondary-container text-on-secondary-fixed px-10 py-5 font-label-caps text-label-caps rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(195,244,0,0.3)]">
+                        COMPRAR AGORA
+                    </button>
+                    <button
+                        class="border border-outline-variant text-on-surface px-10 py-5 font-label-caps text-label-caps rounded-full hover:bg-white/5 transition-colors">
+                        NOSSA HISTÓRIA
+                    </button>
+                </div>
+            </div>
+            <div class="md:col-start-7 md:col-span-6 relative order-1 md:order-2">
+                <div class="relative z-20 transition-transform duration-1000 hover:scale-105 cursor-pointer">
+                    <img alt="Premium bottle of Goró da Mansão - New Design"
+                        class="w-full h-auto object-contain drop-shadow-[0_0_50px_rgba(195,244,0,0.2)]"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKzXXxMdDKroWdWr9Twu7Nst42qwd9CFcg00HkE7_tj1Uqi6dRmgtaTfohS9c5hQrKuE0AsSriCLwshhakn4YLbeMTa6j9Cd-GQ84UScFlEX6nh7xNzzYSlIrbU4yVbsioW9dDdSIna3olx3vwSxis1YSuOugwqknFyeZXZjxBRgftkSUQic5w45cSe84pfanOTfGqGW_MMUwF5QUerhkWJbQuMiFCHX9zE6JEUOZpWshp11lqhf4guH5XMGiprdZwCT0MYB_itiFH">
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Ticker -->
+        <div
+            class="absolute bottom-10 left-0 w-full bg-secondary-container/10 py-3 rotate-[-1deg] border-y border-secondary-fixed/20 backdrop-blur-sm">
+            <div class="marquee-container">
+                <div class="marquee-content flex gap-12 items-center">
+                    <span class="text-label-caps font-label-caps text-secondary-fixed italic">NO ALCOHOL / NO
+                        REGRETS</span>
+                    <span class="text-label-caps font-label-caps text-on-surface opacity-30">•</span>
+                    <span class="text-label-caps font-label-caps text-secondary-fixed italic">BOTANICAL PURITY</span>
+                    <span class="text-label-caps font-label-caps text-on-surface opacity-30">•</span>
+                    <span class="text-label-caps font-label-caps text-secondary-fixed italic">CONSCIOUS WELLNESS</span>
+                    <span class="text-label-caps font-label-caps text-on-surface opacity-30">•</span>
+                    <span class="text-label-caps font-label-caps text-secondary-fixed italic">HIGH-END NIGHTLIFE</span>
+                    <span class="text-label-caps font-label-caps text-on-surface opacity-30">•</span>
+                    <span class="text-label-caps font-label-caps text-secondary-fixed italic">NO ALCOHOL / NO
+                        REGRETS</span>
+                    <span class="text-label-caps font-label-caps text-on-surface opacity-30">•</span>
+                    <span class="text-label-caps font-label-caps text-secondary-fixed italic">BOTANICAL PURITY</span>
+                    <span class="text-label-caps font-label-caps text-on-surface opacity-30">•</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Value Proposition -->
+    <section
+        class="py-section-gap px-margin-mobile md:px-margin-desktop transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+            <div class="md:col-span-5">
+                <h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface mb-8">Sabor
+                    original, <br>sem riscos.</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-start">
+                        <div
+                            class="w-12 h-12 rounded-full border border-secondary-fixed flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-secondary-fixed">eco</span>
+                        </div>
+                        <div>
+                            <h4 class="text-headline-md font-headline-md text-on-surface mb-2">Ingredientes Reais</h4>
+                            <p class="text-body-sm text-on-surface-variant">Extratos botânicos puros, colhidos de forma
+                                sustentável para uma experiência sensorial única.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-start">
+                        <div
+                            class="w-12 h-12 rounded-full border border-secondary-fixed flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-secondary-fixed">shield_with_heart</span>
+                        </div>
+                        <div>
+                            <h4 class="text-headline-md font-headline-md text-on-surface mb-2">Harm Reduction</h4>
+                            <p class="text-body-sm text-on-surface-variant">Focado no bem-estar, eliminando os efeitos
+                                colaterais negativos sem sacrificar o ritual social.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-start-7 md:col-span-6 grid grid-cols-2 gap-4">
+                <div class="aspect-[4/5] glass-card flex items-center justify-center p-8 mt-12">
+                    <img class="w-full h-full object-cover rounded-lg grayscale hover:grayscale-0 transition-all duration-700"
+                        data-alt="Close up of a luxury cocktail glass filled with a clear botanical drink, garnished with a sprig of rosemary and fresh lemon zest. The lighting is cinematic with deep purple and neon green highlights, set against a dark, moody bar background. Crystal clear condensation beads on the glass surface."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXjtWUMOOH0h_YLAd7VboL1rUjJDvqWxyrpyFylvO9oGoRieFtAEBnCg-qKmW95Uz1OS7SHlK5fitpB5F4ClKdg8jo-QDqPrFSYP9vG0fv87vJAexXQox0m3KjqltTlh8PpNlHgBL4R3Xgg81NQ6EVptS8zJueFQSyAKX2tzTx-kk_UfMrsOAacX5cvIksxY_B2V-QCRLCDgA0k3-lK3bJPktscnMC4e9sR5FYNYYP7EGlk-35GgS822MNyMbTx7_6NlIMTNz66fmM">
+                </div>
+                <div class="aspect-[4/5] glass-card flex items-center justify-center p-8">
+                    <img class="w-full h-full object-cover rounded-lg grayscale hover:grayscale-0 transition-all duration-700"
+                        data-alt="Top down view of a professional bartender's hands preparing a premium drink. Silver mixing tools and fresh botanicals like juniper berries and mint leaves are scattered on a dark marble surface. Subtle neon green glowing vapor rises from the scene, creating an atmosphere of exclusive alchemy."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwtW6k-6ZcD4LoHE3C2pKF4Kv3U51JHoc7LlWNRF9FAWL4M4cyzTya-hOZBJXPtWig9Z2XywIiG4q1zfKJhqRUCqtS7_TVZ500HUIPlmPMQ7lZbHhGR4CJDvGAkxmnhP1UpSAH-nmEPDOxBPNjqUvjEcfBhHWZwLQGkDnxNZESVLYCMH5cDlfNV7uGYoeI_4hcauZuRP_L25c2ic_UcQrA6N1YTux7fbnIipaKvdLkuO2BYQkN3C0-dDECe3_6HKuaxlVqG6T5sHMf">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Grid -->
+    <section
+        class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/50 transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="max-w-[1440px] mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-label-caps font-label-caps text-secondary-fixed tracking-widest">CURATED
+                        COLLECTION</span>
+                    <h2 class="text-headline-lg font-headline-lg text-on-surface mt-4">A Coleção</h2>
+                </div>
+                <div class="hidden md:block">
+                    <a class="text-label-caps font-label-caps text-on-surface hover:text-secondary-fixed transition-colors flex items-center gap-2 group"
+                        href="#">
+                        VER TODA A LINHA <span
+                            class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Product 1 -->
+                <div class="glass-card p-unit group flex flex-col items-center">
+                    <div class="relative w-full aspect-square mb-8 overflow-hidden rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="A minimalist, sleek clear bottle with a premium black label featuring white typography. The bottle is surrounded by vibrant neon green backlighting that creates a futuristic halo effect. Large, crystal clear ice cubes and fresh botanical sprigs surround the base on a dark, reflective surface."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOPbn9L1Bqpo4Lg99fr9lXszlBm26hgg7fX4AMH1ykP5L_m3O64p1xvKBYX7i34SKoCSmC5VeIqmj0CTLfCWK6oD3jzNktCIou_dh6AWJeXoWa5YQLfsJ11Cz-TayWgrg1L7sgN0-NUBnYwc3wFFZQqVzGTQh24ucL-G-Ekh-MPNB5gFEueIzWuqYc4vp7TKMxmn0PhDtLTYyKdkn2chVc5l5sZRzP16ufcWyjlB2mI4XTG4yntycEP0hp1W0i_xnwK62kxTDd_1_J">
+                        <div
+                            class="absolute top-4 right-4 bg-secondary-fixed text-on-secondary-fixed px-3 py-1 text-label-caps font-label-caps rounded-full">
+                            NEW</div>
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Goró Original</h3>
+                    <p class="text-label-caps font-label-caps text-on-surface-variant mt-2">CLASSIC BOTANICAL</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <span class="text-body-lg text-on-surface font-bold">R$ 189,00</span>
+                        <button
+                            class="bg-on-surface text-surface-container-lowest w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary-fixed transition-colors">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="glass-card p-unit group flex flex-col items-center">
+                    <div class="relative w-full aspect-square mb-8 overflow-hidden rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="A sophisticated glass bottle with a minimalist label, illuminated by intense magenta and pink neon lights. The bottle appears to be sitting inside a block of crystal clear ice that is slowly melting. The background is a pitch black, high-contrast studio setting, highlighting the luxurious and rebellious spirit of the brand."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuACGlcf6DNjFEHQoyczoDukGr58keD-FNc_zB0gWYjkfdpqUSXAhQYfV-JvEO32hxtfOuO40c1EDAoYi2sjwz4_kkuNsZZu3GnybHERWSNpeY00tq--l4gLz3XtUUmvThfbJGpwf5_P2VQxBrx2xsj98Gh8Ch2ckLd0ArwQdVTO_DlZYGZikffh3StfgelIwaQGCaBg5XvG4Z9sg_frcSNM2M3-m6lwoygdDl1XaA5HgmzyRVTffo6Heygm-SnBGJanILiTOlXhNTHg">
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Hibiscus Nocturnal</h3>
+                    <p class="text-label-caps font-label-caps text-on-surface-variant mt-2">FLORAL INTENSITY</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <span class="text-body-lg text-on-surface font-bold">R$ 215,00</span>
+                        <button
+                            class="bg-on-surface text-surface-container-lowest w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary-fixed transition-colors">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="glass-card p-unit group flex flex-col items-center">
+                    <div class="relative w-full aspect-square mb-8 overflow-hidden rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Three elegant bottles of Goró da Mansão arranged in a tiered, editorial composition. Each bottle is subtly backlit with a different neon color: cyan, magenta, and lime green. The setting is a dark, luxury lounge atmosphere with soft bokeh lights in the distance, emphasizing exclusivity and high-end night life."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU5dVMnqoepT5He0dAv6S-qvH6FBS5m2pQCZ6cJ6oQKYqdM0e7ai1CyZqF2cops2_g9L5Rlh7vQQr1vNK73J-4ZpEE6nB-bc7466gGDhEiMUOuMkX1LPkoSSSk7Dh1kGJaKEwF2gGwnEFz8-_M0sSz-Yy2eNcUTo9pf5gLn1EBJN3g5Orais8UiCI-e78d2Re_Zu1tXAGzxOXA3Ahi1zr-hp8hob5fl3XyIZQFzheeQ51Kc9KV-cAKfDV2hyke4xkdcEoUTj2fuZHq">
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Mansão Reserve</h3>
+                    <p class="text-label-caps font-label-caps text-on-surface-variant mt-2">AGED BLEND</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <span class="text-body-lg text-on-surface font-bold">R$ 249,00</span>
+                        <button
+                            class="bg-on-surface text-surface-container-lowest w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary-fixed transition-colors">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Manifesto / Social Proof -->
+    <section
+        class="py-section-gap relative overflow-hidden bg-background transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="absolute inset-0 studio-glow-cyan opacity-20"></div>
+        <div class="max-w-[800px] mx-auto text-center relative z-10 px-margin-mobile">
+            <h2 class="text-headline-lg-mobile md:text-display-xl font-display-xl text-on-surface leading-none mb-12">
+                Manifesto.</h2>
+            <p class="text-headline-md font-headline-md text-on-surface leading-relaxed italic">
+                "Não é sobre parar a festa, é sobre torná-la inesquecível por todos os motivos certos. Redefinimos a
+                rebeldia através da pureza."
+            </p>
+            <div class="mt-16 flex justify-center gap-12">
+                <div class="text-center">
+                    <p class="text-headline-md font-headline-md text-secondary-fixed">0.0%</p>
+                    <p class="text-label-caps font-label-caps text-on-surface-variant mt-2">ÁLCOOL</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-headline-md font-headline-md text-secondary-fixed">100%</p>
+                    <p class="text-label-caps font-label-caps text-on-surface-variant mt-2">NATURAL</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-headline-md font-headline-md text-secondary-fixed">∞</p>
+                    <p class="text-label-caps font-label-caps text-on-surface-variant mt-2">SABOR</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer
+        class="w-full py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-t border-outline-variant transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter w-full max-w-[1440px] mx-auto">
+            <div class="md:col-span-2">
+                <div class="text-headline-lg font-headline-lg text-on-surface mb-6">GORÓ</div>
+                <p class="text-body-lg text-on-surface-variant max-w-sm mb-12">Luxury Rebellion in Every Sip.
+                    Redefinindo o consumo consciente para a elite urbana.</p>
+                <div class="flex gap-6">
+                    <a class="text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span
+                            class="material-symbols-outlined">mail</span></a>
+                    <a class="text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span
+                            class="material-symbols-outlined">call</span></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-label-caps font-label-caps text-on-surface mb-6">EXPLORE</h5>
+                <ul class="space-y-4">
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="sabores.html">Shop All</a></li>
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="reducao-danos.html">Harm Reduction</a></li>
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Our Story</a></li>
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Manifesto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-label-caps font-label-caps text-on-surface mb-6">AJUDA</h5>
+                <ul class="space-y-4">
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Contact</a></li>
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Privacy Policy</a></li>
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Shipping</a></li>
+                    <li class=""><a
+                            class="text-body-sm text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-body-sm text-on-surface-variant">© 2024 Goró da Mansão. Luxury Rebellion in Every Sip.</p>
+            <div class="flex gap-8">
+                <span class="text-label-caps font-label-caps text-on-surface-variant opacity-50">BRAZIL DESIGN</span>
+                <span class="text-label-caps font-label-caps text-on-surface-variant opacity-50">EST. 2024</span>
+            </div>
+        </div>
+    </footer>
+    <!-- FAB -->
+    <button
+        class="fixed bottom-margin-mobile right-margin-mobile bg-secondary-container text-on-secondary-fixed p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-[150] md:hidden">
+        <span class="material-symbols-outlined">shopping_cart</span>
+    </button>
+    <script>
+        // Smooth scroll reveal effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+
+        // Mouse move light effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            const glow = document.querySelector('.studio-glow-cyan');
+            if (glow) {
+                glow.style.transform = `translate(${(x - 0.5) * 50}px, ${(y - 0.5) * 50}px)`;
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

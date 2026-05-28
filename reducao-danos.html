@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#121414",
+                        "outline": "#8e9192",
+                        "background": "#121414",
+                        "inverse-primary": "#5f5e5e",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "tertiary": "#ffabf3",
+                        "surface-tint": "#c9c6c5",
+                        "on-secondary-container": "#556d00",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-primary-container": "#7b7979",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary": "#313030",
+                        "on-background": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#810081",
+                        "secondary-fixed": "#c3f400",
+                        "inverse-on-surface": "#2f3131",
+                        "on-secondary": "#283500",
+                        "secondary-fixed-dim": "#abd600",
+                        "tertiary-fixed-dim": "#ffabf3",
+                        "surface-container-low": "#1a1c1c",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary": "#5b005b",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-container": "#0a0a0a",
+                        "error-container": "#93000a",
+                        "surface-container": "#1e2020",
+                        "on-surface-variant": "#c4c7c7",
+                        "tertiary-container": "#1b001b",
+                        "secondary-container": "#c3f400",
+                        "on-secondary-fixed-variant": "#3c4d00",
+                        "on-surface": "#e2e2e2",
+                        "tertiary-fixed": "#ffd7f5",
+                        "surface": "#121414",
+                        "outline-variant": "#444748",
+                        "surface-container-high": "#282a2b",
+                        "surface-container-highest": "#333535",
+                        "surface-bright": "#38393a",
+                        "secondary": "#ffffff",
+                        "primary": "#c9c6c5",
+                        "on-tertiary-fixed": "#380038",
+                        "on-secondary-fixed": "#161e00",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e2e2e2",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#d600d6",
+                        "surface-variant": "#333535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "section-gap": "160px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "display-xl": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "100%", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "130%", "fontWeight": "600" }],
+                        "headline-lg": ["64px", { "lineHeight": "115%", "fontWeight": "700" }],
+                        "display-xl": ["120px", { "lineHeight": "110%", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "120%", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "160%", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "150%", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .neon-stroke {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.2);
+            border: 1px solid rgba(195, 244, 0, 0.3);
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            color: transparent;
+        }
+
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <!-- TopAppBar Shell -->
+    <header
+        class="fixed top-0 w-full z-[100] bg-surface/30 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-8 py-4">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+            <a href="index.html" class="text-headline-md font-headline-md tracking-tighter text-on-surface">Goró da
+                Mansão</a>
+        </div>
+        <nav class="hidden md:flex gap-8">
+            <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                href="sabores.html">Botanical Blends</a>
+            <a class="text-label-caps font-label-caps text-secondary hover:text-secondary transition-colors duration-300"
+                href="reducao-danos.html">Redução de Danos</a>
+            <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                href="#">Manifesto</a>
+        </nav>
+        <span class="material-symbols-outlined text-primary cursor-pointer">shopping_bag</span>
+    </header>
+    <main class="pt-32">
+        <!-- Hero Section: Editorial Impact -->
+        <section class="px-margin-desktop mb-section-gap relative">
+            <div class="grid grid-cols-12 gap-gutter items-center">
+                <div class="col-span-7 z-10">
+                    <h1 class="text-display-xl font-display-xl leading-none mb-8">
+                        POR QUE O <br /> <span class="italic font-normal text-secondary-fixed">GORÓ?</span>
+                    </h1>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+                        A noite exige intensidade, mas seu corpo não precisa pagar o preço. Redefinimos a experiência de
+                        luxo através de botânicos funcionais e ciência de redução de danos.
+                    </p>
+                </div>
+                <div class="col-span-5 relative">
+                    <div class="absolute inset-0 bg-secondary-fixed/10 blur-[120px] rounded-full"></div>
+                    <img class="w-full h-auto relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
+                        data-alt="A high-end studio photograph of a sleek, dark frosted glass bottle of Goró, positioned asymmetrically on a polished black marble surface. Sharp, neon lime lighting catches the rim of the glass and creates a vibrant glow against a moody, deep shadow background. Soft botanical leaves are blurred in the foreground to create depth, evoking a sense of mysterious luxury and wellness-driven nightlife."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnjkEgX973E1cDrkTxGVnc6Aas9orxxoG4fORa1xcZHgywUQpFvuhXLU8_b7FuEhJU2P035gcjdgTYmZgtkYJBXkBrPyegVuOSc-PZdBj1O9yzUbpG8EYxo_3w7kd572ROf6390tOEt30znOCrc3i43481T3qiPME0QWN5EOfMALd2sS45NSKN0h4aefzdFBozlpSfsRedobp6nBv2FP1bsAwsifZaWBOt4lD9uvxqRRl2lag4-uwvT9jPMFEulUrHo-CaCt-R2vo7" />
+                </div>
+            </div>
+        </section>
+        <!-- Comparison Ticker -->
+        <div class="ticker-wrap bg-surface-container py-6 border-y border-outline-variant/30 mb-section-gap">
+            <div class="ticker-content flex gap-12 items-center">
+                <span class="text-headline-md font-headline-md text-outline italic">NO ALCOHOL / NO REGRETS</span>
+                <span class="text-headline-md font-headline-md text-secondary-fixed">PURE BOTANICAL ENERGY</span>
+                <span class="text-headline-md font-headline-md text-outline italic">NO ALCOHOL / NO REGRETS</span>
+                <span class="text-headline-md font-headline-md text-secondary-fixed">PURE BOTANICAL ENERGY</span>
+                <span class="text-headline-md font-headline-md text-outline italic">NO ALCOHOL / NO REGRETS</span>
+                <span class="text-headline-md font-headline-md text-secondary-fixed">PURE BOTANICAL ENERGY</span>
+            </div>
+        </div>
+        <!-- The "Danger vs. Design" Comparison Grid -->
+        <section class="px-margin-desktop mb-section-gap">
+            <div class="mb-20 text-center">
+                <h2 class="text-headline-lg font-headline-lg mb-4 text-on-surface">O Ritual Evoluído</h2>
+                <p class="text-body-lg font-body-lg text-on-surface-variant">A ciência por trás do fim da ressaca e do
+                    início da euforia lúcida.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <!-- Tradicional Card -->
+                <div class="glass-card p-12 rounded-xl flex flex-col justify-between border-outline-variant/20">
+                    <div>
+                        <span class="text-label-caps font-label-caps text-error mb-6 block">MIX TRADICIONAL</span>
+                        <h3 class="text-headline-md font-headline-md mb-8">Energético + Álcool</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-error">warning</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Arritmia Mascarada</p>
+                                    <p class="text-body-sm text-on-surface-variant">A cafeína esconde o efeito depressor
+                                        do álcool, levando o coração a ritmos perigosos.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-error">water_drop</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Desidratação Aguda</p>
+                                    <p class="text-body-sm text-on-surface-variant">O álcool inibe o hormônio
+                                        antidiurético, drenando os minerais essenciais do cérebro.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-error">cloud</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Blackout Cognitivo</p>
+                                    <p class="text-body-sm text-on-surface-variant">Sobrecarga de açúcar e toxinas
+                                        resultam em falhas de memória e fadiga extrema.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Goró Card -->
+                <div
+                    class="glass-card p-12 rounded-xl flex flex-col justify-between neon-stroke relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary-fixed/20 blur-[80px] rounded-full">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-label-caps font-label-caps text-secondary-fixed mb-6 block">FÓRMULA
+                            GORÓ</span>
+                        <h3 class="text-headline-md font-headline-md mb-8">Botânicos + Ciência</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary-fixed">bolt</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Euforia Sustentada</p>
+                                    <p class="text-body-sm text-on-surface-variant">L-Teanina e Guaraná de extração
+                                        lenta garantem foco sem ansiedade ou "crash".</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary-fixed">shield_with_heart</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Proteção Hepática</p>
+                                    <p class="text-body-sm text-on-surface-variant">Adaptógenos como Ashwagandha
+                                        auxiliam o corpo a processar o estresse físico da noite.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary-fixed">psychology</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Flow State</p>
+                                    <p class="text-body-sm text-on-surface-variant">Nootrópicos naturais que mantêm você
+                                        presente, sociável e totalmente no controle.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button
+                        class="mt-12 bg-secondary-fixed text-on-secondary-fixed font-label-caps px-8 py-4 rounded-full w-fit hover:shadow-[0_0_20px_rgba(195,244,0,0.5)] transition-all">
+                        DESCUBRA A CIÊNCIA
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Science Bento Grid -->
+        <section class="px-margin-desktop mb-section-gap">
+            <div class="grid grid-cols-12 gap-6 h-[700px]">
+                <div class="col-span-8 glass-card rounded-xl overflow-hidden relative">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+                        data-alt="A cinematic, high-contrast close-up of a laboratory beaker filled with a glowing, translucent green liquid, surrounded by dark botanical herbs and dry ice mist. The lighting is focused and dramatic, using a cool teal and neon green color palette. The laboratory setting is modern and clinical yet stylized for a luxury brand, suggesting sophisticated extraction and purification of natural ingredients."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8ZuA-uPtRQA5H2mFv1pSdkdoLaEkNbpVHQSP8zLHMLLzziVKb3mzu9eo5-jvwDqaT8khN7qI8n7CObAKnT1w6jgaHCBHeEJK7yVC423jxcHxAOfPyKTTljKfuWq3Fl1iWQay2MgIT11AdeSZfmmYp3_jU0-PNbms8Rv0ckGkrV1w-9HpnSHRVEbF8-qslSh1kMypJ_zfiUsf8qhGg5TRh6JOH5Q0OGI9AnqaPqfA0a-8zCPtU_BXmzCT9icfIC6Ui0Y47iYYa6mra" />
+                    <div class="absolute bottom-0 left-0 p-12 w-full bg-gradient-to-t from-background to-transparent">
+                        <h4 class="text-headline-md font-headline-md mb-4 italic">O Laboratório de Hedonismo Seguro</h4>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                            Nossa extração a frio preserva a integridade molecular de cada raiz, fruta e erva. Não
+                            usamos corantes sintéticos, apenas a vibração real da natureza.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-4 flex flex-col gap-6">
+                    <div class="flex-1 glass-card rounded-xl p-8 flex flex-col justify-center items-center text-center">
+                        <span class="text-display-xl font-display-xl text-secondary-fixed">0%</span>
+                        <p class="text-label-caps font-label-caps">Álcool &amp; Sintéticos</p>
+                    </div>
+                    <div class="flex-1 glass-card rounded-xl p-8 flex flex-col justify-center items-center text-center">
+                        <span class="text-headline-md font-headline-md text-on-surface">100%</span>
+                        <p class="text-label-caps font-label-caps">Bio-Disponibilidade</p>
+                    </div>
+                    <div
+                        class="flex-1 bg-secondary-fixed p-8 rounded-xl flex items-center justify-between group cursor-pointer overflow-hidden relative">
+                        <div class="relative z-10">
+                            <p class="text-on-secondary-fixed font-bold text-headline-md">Harm Reduction Manifesto</p>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-4xl text-on-secondary-fixed group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Redução de Danos Focus Section -->
+        <section class="px-margin-desktop mb-section-gap grid grid-cols-12 gap-gutter items-center">
+            <div class="col-span-5">
+                <img class="w-full rounded-xl filter contrast-125"
+                    data-alt="A top-down editorial shot of an crystal glass filled with Goró, reflecting vibrant neon magenta and cyan lights from a nearby nightclub environment. The surface of the drink is perfectly still, reflecting a sophisticated city skyline. Beside the glass are small minimalist badges and silver pills representing premium supplements. The overall mood is cool, electric, and impeccably clean."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc3HrE6a8ppE-mpXsHxpbQXMNObhFNSnhGnkeEdBE0aL3ntNOly20_3tYNL1XSW4R3E0l92wjM1QB4hlei6PVpvao4eB2lmX1xDqw4kMt3Pc6c45jqUdK0b4C9o_Rwmq1DojcMYGjFE44Deo2N_HPuR6-apEbv3CRrFxDI5Gt808VNl6Svw-UlAqNZZDU2dSw5qXFJR4xGdmrOKUHa82_5M_84JG5zQZkw-2m-iQ23AsxD3wl44aQD4jf7xat5ROtzbicGbkqIkDFq" />
+            </div>
+            <div class="col-span-7 pl-12">
+                <span class="text-label-caps font-label-caps text-secondary-fixed">BIO-HACKING THE NIGHT</span>
+                <h2 class="text-headline-lg font-headline-lg mb-8">Beber com propósito, <br /> não por hábito.</h2>
+                <div class="space-y-8">
+                    <div class="border-l-2 border-secondary-fixed pl-8">
+                        <h5 class="text-headline-md font-headline-md text-on-surface mb-2">Social Hubris</h5>
+                        <p class="text-body-sm text-on-surface-variant">O álcool muitas vezes serve como uma muleta
+                            social que apaga a personalidade. Goró potencializa seu carisma natural mantendo a lucidez
+                            afiada para conexões reais.</p>
+                    </div>
+                    <div class="border-l-2 border-outline pl-8">
+                        <h5 class="text-headline-md font-headline-md text-on-surface mb-2">Recovery Optimized</h5>
+                        <p class="text-body-sm text-on-surface-variant">Incluímos eletrólitos marinhos e vitamina
+                            B-Complex em cada dose. Enquanto você dança, seu corpo já está no processo de restauração.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Shell -->
+    <footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-12 px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter w-full">
+            <div class="col-span-1 md:col-span-2">
+                <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">Goró da Mansão.</h2>
+                <p class="text-body-sm text-secondary italic">Luxury Rebellion in Every Sip.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h6 class="text-label-caps font-label-caps text-on-surface">Explore</h6>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-all"
+                    href="sabores.html">Shop All</a>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-all"
+                    href="reducao-danos.html">Harm Reduction</a>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Our Story</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h6 class="text-label-caps font-label-caps text-on-surface">Connect</h6>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Contact</a>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy</a>
+                <p class="text-body-sm text-on-surface-variant mt-8 opacity-50">© 2024 Goró da Mansão.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Interactive script for some flair -->
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.bg-secondary-fixed/10, .bg-secondary-fixed/20');
+            blobs.forEach(blob => {
+                const speed = 0.02;
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                blob.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
