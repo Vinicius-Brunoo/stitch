@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /links/{linkId} {
+      // Redirecionamento: Qualquer pessoa pode ler um documento de link individual (get) pelo código de 6 caracteres.
+      allow get: if true;
+
+      // Área Restrita - Listagem: Apenas usuários autenticados podem listar (list) seus próprios links.
+      allow list: if request.auth != null && resource.data.userId == request.auth.uid;
+
+      // Área Restrita - Criação: Apenas usuários autenticados podem criar links associados ao seu próprio UID.
+      allow create: if request.auth != null 
+                    && request.resource.data.userId == request.auth.uid
+                    && request.resource.data.clicks == 0
+                    && request.resource.data.code == linkId; // Garante que o documento ID seja igual ao código de 6 caracteres
+
+      // Atualização:
+      // 1. O dono do link pode alterar qualquer campo (exceto mudar a propriedade do userId).
+      // 2. Qualquer visitante anônimo pode atualizar apenas o campo 'clicks' (usado no redirecionamento).
+      allow update: if (request.auth != null && resource.data.userId == request.auth.uid)
+                    || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['clicks']));
+
+      // Exclusão: Apenas o dono do link pode deletá-lo.
+      allow delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}
